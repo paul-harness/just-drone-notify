@@ -1,0 +1,11 @@
+pipeline:
+  notify:
+    image: drillster/drone-email
+    host: smtp.sendgrid.net
+    username: apikey
+    password:
+      from_secret: smtp_api_key
+    from: drone@your-domain.com
+    recipients: [ paul.suholet@harness.io, psuholet@gmail.com ]
+    when:
+      status: [ changed, failure ]
